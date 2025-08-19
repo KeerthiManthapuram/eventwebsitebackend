@@ -6,14 +6,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Extract the PORT variable from environment config
-const { PORT } = process.env;
+const PORT = process.env.PORT || 5000;
 
-// For Vercel serverless functions - export the app
-module.exports = app;
-
-// For local development - start the server
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT || 5000, function() {
-        console.log(`Server is running at port ${PORT || 5000}`);
-    });
-}
+// Start the server (Render needs this)
+app.listen(PORT, () => {
+    console.log(`🚀 Server is running at port ${PORT}`);
+});
