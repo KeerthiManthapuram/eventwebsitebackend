@@ -9,11 +9,12 @@ const cors = require('cors');
 
 
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production' 
-        ? process.env.FRONTEND_URL || true  // Will be set in Vercel
+    origin: process.env.NODE_ENV === 'production'
+        ? process.env.FRONTEND_URL
         : 'http://localhost:3000',
     credentials: true
 }));
+
 
 
 // Import route handlers
